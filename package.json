@@ -1,0 +1,12 @@
+{
+  "name": "memories",
+  "version": "1.0.0",
+  "description": "スクールでの思い出をおしゃれに見られたらいいなぁ ## 🛠️&nbsp;&nbsp;技術構成 - **Frontend** : HTML / CSS / JavaScript - **Backend** : Node.js (Express) - **API** : Google Photos Library API - **その他** : dotenv (環境変数管理)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
