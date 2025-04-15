@@ -1,0 +1,23 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 75px;
+  .container {
+    position: relative;
+    .credit {
+      width: 200px;
+      height: 100%;
+      position: absolute;
+      flex-direction: column;
+      gap: 8px;
+      right: 0;
+      a {
+        transition: letter-spacing 0.3s;
+      }
+      a:hover {
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+}
