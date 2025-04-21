@@ -2,17 +2,17 @@
   display: flex;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
   .main {
     display: inline-flex;
     height: calc(100vh - 150px);
     width: 100%;
-    background: #dfb8b8;
-    .day-1 {
+    .day {
+      background: #dfb8b8;
       width: 100vw;
       height: 100%;
-      font-size: 120px;
+      h2 {
+        font-size: 48px;
+      }
     }
   }
 }
