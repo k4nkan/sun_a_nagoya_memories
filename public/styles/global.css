@@ -19,9 +19,8 @@ a {
 }
 
 .container {
-  max-width: 1200px;
   width: 100%;
-  margin: 0 100px;
+  padding: 0 100px;
 }
 
 .flex {
