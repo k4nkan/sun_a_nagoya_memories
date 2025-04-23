@@ -5,10 +5,14 @@ header {
   .container {
     width: 100%;
     justify-content: space-between;
-    h1 {
+    .title-text {
       font-size: 40px;
       letter-spacing: 4px;
     }
+    .title-text:hover {
+      animation: text-blur 1s ease;
+    }
+
     .add-button {
       position: relative;
       display: inline-block;
@@ -41,5 +45,17 @@ header {
     .add-button:hover {
       color: #f9f9f9;
     }
+  }
+}
+
+@keyframes text-blur {
+  0% {
+    filter: blur(0);
+  }
+  50% {
+    filter: blur(4px);
+  }
+  100% {
+    filter: blur(0);
   }
 }
