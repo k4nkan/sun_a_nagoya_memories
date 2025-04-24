@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: "ssss",
+    origin: "https://nagoya-sun-a-memories.netlify.app/",
     credentials: true,
   })
 );
