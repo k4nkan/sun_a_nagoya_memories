@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/loading.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +18,10 @@
     />
   </head>
   <body>
+    <div id="loading">
+      <div class="spinner"></div>
+    </div>
+
     <header class="flex">
       <div class="flex container">
         <a class="title-text" href="">Memories</a>
@@ -46,9 +51,10 @@
         </div>
       </div>
     </footer>
-    <script type="module">
+    <script defer type="module">
       import { checkAuth } from "./scripts/auth.js";
       checkAuth();
     </script>
+    <script src="scripts/loading.js"></script>
   </body>
 </html>
