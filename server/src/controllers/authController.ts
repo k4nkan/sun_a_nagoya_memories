@@ -1,16 +1,22 @@
 import { Request, Response } from "express";
 import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
 
 dotenv.config();
 
-const PASSWORD = process.env.SITE_PASSWORD;
+const PASSWORD = process.env.SITE_PASSWORD as string;
+const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export const checkPassword = (req: Request, res: Response) => {
   const { password } = req.body;
 
+  // パスワード一致時にトークンを発行
   if (password === PASSWORD) {
-    res.status(200).json({ success: true });
+    const token = jwt.sign({ authed: true }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
+    res.status(200).json({ success: true, token });
   } else {
-    res.status(401).json({ succsess: false, message: "invalid passworf" });
+    res.status(401).json({ succsess: false, message: "invalid password" });
   }
 };
