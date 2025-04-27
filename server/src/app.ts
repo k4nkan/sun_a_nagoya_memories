@@ -8,10 +8,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-const allowedOrigin =
-  process.env.NODE_ENV === "dev"
-    ? process.env.FRONTEND_LOCAL_URL
-    : process.env.FRONTEND_PUBLIC_URL;
+const isDev =
+  process.env.NODE_ENV === "dev" || process.env.NODE_ENV === "development";
+
+const allowedOrigin = isDev
+  ? process.env.FRONTEND_LOCAL_URL
+  : process.env.FRONTEND_PUBLIC_URL;
 
 app.use(
   cors({

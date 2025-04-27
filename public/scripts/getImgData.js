@@ -7,8 +7,8 @@ async function getImgData() {
     return;
   }
   try {
-    // const response = await fetch(`https://sunanagoyamemories-production.up.railway.app/api?day=${day}`, {
-    const response = await fetch(`http://localhost:3000/api?day=${day}`, {
+    const response = await fetch(`https://sunanagoyamemories-production.up.railway.app/api?day=${day}`, {
+    //const response = await fetch(`http://localhost:3000/api?day=${day}`, {
       method: "GET", // GETメソッドを指定
       headers: {
         Authorization: `Bearer ${token}`,
