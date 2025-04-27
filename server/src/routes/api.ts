@@ -3,12 +3,18 @@ import multer from "multer";
 import { getAllData } from "../controllers/getAllData";
 import { uploadData } from "../controllers/uploadData";
 import { checkPassword } from "../controllers/authController";
+import { verifyToken } from "../controllers/varifyToken";
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
-router.get("/", getAllData);
-router.post("/", upload.single("file"), uploadData);
+// テーブルのデータ取得（トークン必須）
+router.get("/", verifyToken, getAllData);
+
+// ストレージに画像アップロード（トークン必須）
+router.post("/", verifyToken, upload.single("file"), uploadData);
+
+// パスワード認証 (トークン不要)
 router.post("/auth", checkPassword);
 
 export default router;

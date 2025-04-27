@@ -10,7 +10,8 @@ export async function login(password) {
   );
 
   if (res.ok) {
-    localStorage.setItem("isAuthed", "true");
+    const data = await res.json();
+    localStorage.setItem("token", data.token);
     window.location.href = "/public/home.html";
   } else {
     alert("パスワードが違います！");
@@ -18,7 +19,8 @@ export async function login(password) {
 }
 
 export function checkAuth() {
-  if (localStorage.getItem("isAuthed") !== "true") {
+  const token = localStorage.getItem("token");
+  if (!token) {
     window.location.href = "/index.html";
   }
 }
