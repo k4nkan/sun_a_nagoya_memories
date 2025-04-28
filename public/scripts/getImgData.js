@@ -7,14 +7,17 @@ async function getImgData() {
     return;
   }
   try {
-    const response = await fetch(`https://sunanagoyamemories-production.up.railway.app/api?day=${day}`, {
     //const response = await fetch(`http://localhost:3000/api?day=${day}`, {
-      method: "GET", // GETメソッドを指定
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://nagoya-sun-a-memories-production.up.railway.app/api?day=${day}`,
+      {
+        method: "GET", // GETメソッドを指定
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (response.ok) {
       const data = await response.json();
       console.log("ok:", data);

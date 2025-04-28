@@ -13,22 +13,22 @@
       rel="stylesheet"
     />
   </head>
-  <body class="flex">
-    <div class="password-line"></div>
-    <div class="password-container flex">
-      <h2>Memories</h2>
-      <img src="img/lock.png" alt="" />
-      <textarea name="" id="" placeholder="Password in Here"></textarea>
-      <script type="module">
-        import { login } from "./scripts/auth.js";
-        document.querySelector("textarea").addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            const password = e.target.value.trim();
-            if (password) login(password);
-          }
-        });
-      </script>
-    </div>
+  <body>
+    <section class="flex loading">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </section>
+    <section class="flex password">
+      <div class="password-line"></div>
+      <div class="flex password-container">
+        <h2>Memories</h2>
+        <img id="auth-img" src="img/lock.png" alt="lock" />
+        <textarea id="passwordInput" placeholder="Password in Here"></textarea>
+      </div>
+    </section>
+    <script type="module" src="./scripts/auth.js"></script>
   </body>
 </html>
