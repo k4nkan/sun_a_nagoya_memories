@@ -1,20 +1,67 @@
-export async function login(password) {
-  const res = await fetch(
-    "https://sunanagoyamemories-production.up.railway.app/api/auth",
-    //"http://localhost:3000/api/auth",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    }
-  );
+function showLoading() {
+  const loading = document.querySelector(".loading");
+  if (loading) loading.classList.add("show");
+}
 
-  if (res.ok) {
-    const data = await res.json();
-    localStorage.setItem("token", data.token);
-    window.location.href = "/public/home.html";
-  } else {
-    alert("パスワードが違います！");
+function hideLoading() {
+  const loading = document.querySelector(".loading");
+  if (loading) loading.classList.remove("show");
+}
+
+export async function login(password) {
+  const authImg = document.getElementById("auth-img");
+
+  try {
+    // ローディングの表示
+    showLoading();
+
+    const res = await fetch(
+      //"http://localhost:3000/api/auth",
+      "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      }
+    );
+
+    if (res.ok) {
+      const data = await res.json();
+      localStorage.setItem("token", data.token);
+      // 認証成功時に画像切り替え
+      if (authImg) {
+        authImg.src = "img/unlock.png";
+        authImg.classList.add("unlocked");
+      }
+      // 切り替えアニメーション終了後に画面遷移
+      authImg.addEventListener(
+        "transitionend",
+        () => {
+          setTimeout(() => {
+            window.location.href = "/home.html";
+          }, 500);
+        },
+        { once: true }
+      );
+    } else {
+      console.error("missing pass");
+      // クラスの管理と失敗時用のアニメーション
+      if (authImg) {
+        authImg.classList.remove("unlocked");
+        authImg.classList.add("shake");
+      }
+      authImg.addEventListener(
+        "animationend",
+        () => {
+          authImg.classList.remove("shake");
+        },
+        { once: true }
+      );
+    }
+  } catch (error) {
+    console.error("ログインエラー:", error);
+  } finally {
+    hideLoading();
   }
 }
 
@@ -24,3 +71,13 @@ export function checkAuth() {
     window.location.href = "/index.html";
   }
 }
+
+// textareaの入力監視
+const passwordInput = document.getElementById("passwordInput");
+passwordInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    const password = e.target.value.trim();
+    if (password) login(password);
+  }
+});
