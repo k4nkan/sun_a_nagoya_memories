@@ -16,7 +16,6 @@ export async function login(password) {
     showLoading();
 
     const res = await fetch(
-      //"http://localhost:3000/api/auth",
       "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
       {
         method: "POST",
@@ -74,10 +73,12 @@ export function checkAuth() {
 
 // textareaの入力監視
 const passwordInput = document.getElementById("passwordInput");
-passwordInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    const password = e.target.value.trim();
-    if (password) login(password);
-  }
-});
+if (passwordInput) {
+  passwordInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const password = e.target.value.trim();
+      if (password) login(password);
+    }
+  });
+}
