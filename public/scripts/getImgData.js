@@ -1,13 +1,12 @@
 const token = localStorage.getItem("token");
-const day = "day2";
+const day = "day1";
 
 async function getImgData() {
   if (!token) {
-    alert("認証失敗");
+    console.log("error : 認証失敗");
     return;
   }
   try {
-    //const response = await fetch(`http://localhost:3000/api?day=${day}`, {
     const response = await fetch(
       `https://nagoya-sun-a-memories-production.up.railway.app/api?day=${day}`,
       {
