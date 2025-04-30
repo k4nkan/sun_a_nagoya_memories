@@ -1,19 +1,11 @@
-function showLoading() {
-  const loading = document.querySelector(".loading");
-  if (loading) loading.classList.add("show");
-}
-
-function hideLoading() {
-  const loading = document.querySelector(".loading");
-  if (loading) loading.classList.remove("show");
-}
+import loading from "./loading.js";
 
 export async function login(password) {
   const authImg = document.getElementById("auth-img");
 
   try {
     // ローディングの表示
-    showLoading();
+    loading.showLoading();
 
     const res = await fetch(
       "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
@@ -60,7 +52,7 @@ export async function login(password) {
   } catch (error) {
     console.error("ログインエラー:", error);
   } finally {
-    hideLoading();
+    loading.hideLoading();
   }
 }
 
