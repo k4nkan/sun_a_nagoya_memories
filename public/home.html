@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/home.css" />
     <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/loading.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,10 +20,20 @@
     <script src="scripts/getImgData.js"></script>
   </head>
   <body>
+    <section class="flex loading">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </section>
+
     <header class="flex">
       <div class="flex container">
         <a class="title-text" href="">Memories</a>
-        <label class="add-button" href="" id="customFileButton">Add Memories</label>
+        <label class="add-button" id="customFileButton"
+          >Add Memories</label
+        >
         <input type="file" id="fileInput" style="display: none" />
       </div>
     </header>
@@ -53,6 +64,6 @@
       import { checkAuth } from "./scripts/auth.js";
       checkAuth();
     </script>
-    <script src="scripts/addImgData.js"></script>
+    <script type="module" src="scripts/addImgData.js"></script>
   </body>
 </html>

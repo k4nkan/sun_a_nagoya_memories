@@ -1,12 +1,17 @@
+import loading from "./loading.js";
+
 const fileInput = document.getElementById("fileInput");
 const customButton = document.getElementById("customFileButton");
 
+// aタグの動作を防ぎ、inputタグにおけるclickを代わりに実行
 customButton.addEventListener("click", function (e) {
   e.preventDefault();
   fileInput.click();
 });
 
 fileInput.addEventListener("change", async function () {
+  loading.showLoading();
+
   if (fileInput.files && fileInput.files.length > 0) {
     const file = fileInput.files[0];
     const day = "day1";
@@ -34,6 +39,8 @@ fileInput.addEventListener("change", async function () {
       }
     } catch (err) {
       console.error("Error upload:", err);
+    } finally {
+      loading.hideLoading();
     }
   }
 });
