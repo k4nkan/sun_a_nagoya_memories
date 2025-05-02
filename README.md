@@ -9,3 +9,7 @@
 - **Frontend** : HTML / CSS / JavaScript
 - **Backend** : TS / Node.js / Express / dotenv / multer / sharp / uuid / Supabase
 - **その他** : Netlify / Railway
+## 🎉&nbsp;&nbsp;Special Thanks
+- りっちゃん
+- ほしょさん
+- さりゅさん
