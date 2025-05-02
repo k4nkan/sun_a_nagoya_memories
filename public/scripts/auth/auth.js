@@ -1,4 +1,4 @@
-import loading from "./loading.js";
+import loading from "../ui/loading.js";
 
 export async function login(password) {
   const authImg = document.getElementById("auth-img");

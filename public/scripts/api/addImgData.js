@@ -1,4 +1,4 @@
-import loading from "./loading.js";
+import loading from "../ui/loading.js";
 
 const fileInput = document.getElementById("fileInput");
 const customButton = document.getElementById("customFileButton");
