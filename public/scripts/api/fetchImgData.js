@@ -1,7 +1,8 @@
-const token = localStorage.getItem("token");
-const day = "day1";
+import { setImages } from "../data/imgData.js";
 
-async function getImgData() {
+const token = localStorage.getItem("token");
+
+export async function fetchImgData(day = "day1") {
   if (!token) {
     console.log("error : 認証失敗");
     return;
@@ -10,7 +11,7 @@ async function getImgData() {
     const response = await fetch(
       `https://nagoya-sun-a-memories-production.up.railway.app/api?day=${day}`,
       {
-        method: "GET", // GETメソッドを指定
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -20,6 +21,7 @@ async function getImgData() {
     if (response.ok) {
       const data = await response.json();
       console.log("ok:", data);
+      setImages(data);
     } else {
       console.log("error:", response.status, response.statusText);
     }
@@ -27,7 +29,3 @@ async function getImgData() {
     console.error("error during fetch:", error);
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  getImgData();
-});

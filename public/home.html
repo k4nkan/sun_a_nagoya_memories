@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/home.css" />
     <link rel="stylesheet" href="styles/footer.css" />
-    <link rel="stylesheet" href="styles/loading.css">
+    <link rel="stylesheet" href="styles/loading.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,8 +16,6 @@
       href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
       rel="stylesheet"
     />
-
-    <script src="scripts/getImgData.js"></script>
   </head>
   <body>
     <section class="flex loading">
@@ -31,9 +29,7 @@
     <header class="flex">
       <div class="flex container">
         <a class="title-text" href="">Memories</a>
-        <label class="add-button" id="customFileButton"
-          >Add Memories</label
-        >
+        <label class="add-button" id="customFileButton">Add Memories</label>
         <input type="file" id="fileInput" style="display: none" />
       </div>
     </header>
@@ -41,7 +37,8 @@
     <section class="flex main-container">
       <div class="main">
         <div class="flex day">
-          <h2>Day 1</h2>
+          <div id="image-container"></div>
+          <script type="module" src="./scripts/main.js"></script>
         </div>
       </div>
     </section>
@@ -61,9 +58,9 @@
       </div>
     </footer>
     <script defer type="module">
-      import { checkAuth } from "./scripts/auth.js";
+      import { checkAuth } from "./scripts/auth/auth.js";
       checkAuth();
     </script>
-    <script type="module" src="scripts/addImgData.js"></script>
+    <script type="module" src="scripts/api/addImgData.js"></script>
   </body>
 </html>
