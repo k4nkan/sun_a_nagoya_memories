@@ -4,7 +4,12 @@ import loading from "./ui/loading.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   loading.showLoading();
-  await fetchImgData();
-  displayImages();
-  loading.hideLoading();
+  try {
+    await fetchImgData();
+    displayImages();
+  } catch (err) {
+    console.error("表示エラー:", err);
+  } finally {
+    loading.hideLoading();
+  }
 });

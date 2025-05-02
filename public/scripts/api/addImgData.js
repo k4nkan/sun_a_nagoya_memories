@@ -56,6 +56,10 @@ fileInput.addEventListener("change", async function () {
     } catch (err) {
       console.error("Error upload:", err);
       loading.hideLoading();
+    } finally {
+      loading.hideLoading();
     }
+  } else {
+    loading.hideLoading();
   }
 });

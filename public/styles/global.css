@@ -1,8 +1,13 @@
+@font-face {
+  font-family: "AlpenFont";
+  src: url("./fonts/AlpenFontFree.otf");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Chewy";
+  font-family: "AlpenFont";
 }
 
 body,
