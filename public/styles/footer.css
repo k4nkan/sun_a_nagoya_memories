@@ -7,7 +7,7 @@ footer {
   .container {
     position: relative;
     .credit {
-      width: 150px;
+      width: 200px;
       height: 100%;
       position: absolute;
       flex-direction: column;

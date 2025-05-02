@@ -1,7 +1,7 @@
 export let images = [];
 
 export function setImages(newImages) {
-  images = newImages;
+  images = newImages || [];
 }
 
 export function getImages() {
