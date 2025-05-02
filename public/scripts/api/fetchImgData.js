@@ -11,7 +11,7 @@ export async function fetchImgData(day = "day1") {
     const response = await fetch(
       `https://nagoya-sun-a-memories-production.up.railway.app/api?day=${day}`,
       {
-        method: "GET", // GETメソッドを指定
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
