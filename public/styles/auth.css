@@ -17,7 +17,7 @@ body {
     height: 350px;
     box-shadow: 4px 4px 6px 6px rgba(0, 0, 0, 0.3);
     flex-direction: column;
-    gap: 12px;
+    gap: 32px;
     background: #fdfdfd;
     color: black;
 
@@ -45,8 +45,8 @@ body {
     }
 
     img {
-      height: 120px;
-      width: 120px;
+      height: 100px;
+      width: 100px;
     }
 
     #auth-img {
@@ -54,7 +54,7 @@ body {
     }
 
     #auth-img.unlocked {
-      transform: rotate(360deg) scale(1.5);
+      transform: rotate(360deg) scale(1);
     }
 
     #auth-img.shake {
