@@ -21,7 +21,7 @@ export async function login(password) {
       localStorage.setItem("token", data.token);
       // 認証成功時に画像切り替え
       if (authImg) {
-        authImg.src = "img/unlock.png";
+        authImg.src = "img/unlock.webp";
         authImg.classList.add("unlocked");
       }
       // 切り替えアニメーション終了後に画面遷移

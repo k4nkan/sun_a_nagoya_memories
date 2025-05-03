@@ -34,7 +34,7 @@
     width: 216px;
     height: 258px;
     background: #f3f3f3;
-    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 6px 6px rgba(0, 0, 0, 0.4);
   }
 
   .img-container {
