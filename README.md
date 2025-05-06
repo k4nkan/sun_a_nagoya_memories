@@ -10,6 +10,7 @@
 - **Backend** : TS / Node.js / Express / dotenv / multer / sharp / uuid / Supabase
 - **その他** : Netlify / Railway
 ## 🎉&nbsp;&nbsp;Special Thanks
+- あるちゃん
 - りっちゃん
 - ほしょさん
 - さりゅさん
