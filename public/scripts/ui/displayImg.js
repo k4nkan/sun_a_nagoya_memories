@@ -7,12 +7,11 @@ export function displayImages() {
   const images = getImages();
 
   const layouts = [
-    { top: 10, left: 10 },
-    { top: 20, left: 20 },
-    { top: 30, left: 30 },
-    { top: 40, left: 40 },
-    { top: 50, left: 50 },
-    { top: 60, left: 60 },
+    { top: 50, left: 50, z: 10, transform: "rotate(0deg)" },
+    { top: 35, left: 35, z: 9, transform: "rotate(-6deg)" },
+    { top: 35, left: 65, z: 8, transform: "rotate(4deg)" },
+    { top: 65, left: 35, z: 7, transform: "rotate(5deg)" },
+    { top: 65, left: 65, z: 6, transform: "rotate(-5deg)" },
   ];
 
   images.forEach((img, index) => {
@@ -33,6 +32,8 @@ export function displayImages() {
     const pos = layouts[index % layouts.length];
     frame.style.top = `${pos.top}%`;
     frame.style.left = `${pos.left}%`;
+    frame.style.zIndex = `${pos.z}`;
+    frame.style.transform = `translate(-50%,-50%) ${pos.transform}`;
 
     imgContainer.appendChild(imgElem);
     frame.appendChild(imgContainer);
