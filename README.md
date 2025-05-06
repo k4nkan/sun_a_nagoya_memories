@@ -7,7 +7,7 @@
 - [**備忘録 Zenn**](https://zenn.dev/litkyan/scraps/f9b230a250953c)
 ## 🛠️&nbsp;&nbsp;技術構成
 - **Frontend** : HTML / CSS / JavaScript
-- **Backend** : TS / Node.js / Express / dotenv / multer / sharp / uuid / Supabase
+- **Backend** : TypeScript / Node.js / Express / dotenv / multer / sharp / uuid / Supabase
 - **その他** : Netlify / Railway
 ## 🎉&nbsp;&nbsp;Special Thanks
 - あるちゃん
