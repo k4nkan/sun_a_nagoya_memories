@@ -5,7 +5,17 @@ export function displayImages() {
   container.innerHTML = "";
 
   const images = getImages();
-  images.forEach((img) => {
+
+  const layouts = [
+    { top: 10, left: 10 },
+    { top: 20, left: 20 },
+    { top: 30, left: 30 },
+    { top: 40, left: 40 },
+    { top: 50, left: 50 },
+    { top: 60, left: 60 },
+  ];
+
+  images.forEach((img, index) => {
     // class が photo の imgタグを作成
     const imgElem = document.createElement("img");
     imgElem.src = img["image-url"];
@@ -19,6 +29,10 @@ export function displayImages() {
     // class が frame の divタグを作成
     const frame = document.createElement("div");
     frame.className = "frame";
+
+    const pos = layouts[index % layouts.length];
+    frame.style.top = `${pos.top}%`;
+    frame.style.left = `${pos.left}%`;
 
     imgContainer.appendChild(imgElem);
     frame.appendChild(imgContainer);
