@@ -1,18 +1,16 @@
 import { getImages } from "../data/imgData.js";
+import { getLayouts } from "../data/layoutData.js";
 
-export function displayImages() {
+export function displayImages(day) {
   const container = document.getElementById("image-container");
   container.innerHTML = "";
 
+  // 画像の取得
   const images = getImages();
+  const imageLength = images.length;
 
-  const layouts = [
-    { top: 50, left: 50, z: 10, transform: "rotate(0deg)" },
-    { top: 35, left: 35, z: 9, transform: "rotate(-6deg)" },
-    { top: 35, left: 65, z: 8, transform: "rotate(4deg)" },
-    { top: 65, left: 35, z: 7, transform: "rotate(5deg)" },
-    { top: 65, left: 65, z: 6, transform: "rotate(-5deg)" },
-  ];
+  // レイアウトの取得
+  const layouts = getLayouts(day, imageLength);
 
   images.forEach((img, index) => {
     // class が photo の imgタグを作成
@@ -29,9 +27,10 @@ export function displayImages() {
     const frame = document.createElement("div");
     frame.className = "frame";
 
+    // 場所の決定
     const pos = layouts[index % layouts.length];
-    frame.style.top = `${pos.top}%`;
-    frame.style.left = `${pos.left}%`;
+    frame.style.top = `calc(50% + ${pos.top}px)`;
+    frame.style.left = `calc(50% + ${pos.left}px)`;
     frame.style.zIndex = `${pos.z}`;
     frame.style.transform = `translate(-50%,-50%) ${pos.transform}`;
 
