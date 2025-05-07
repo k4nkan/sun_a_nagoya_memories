@@ -1,6 +1,20 @@
 body {
-  background: #a1b1c1;
+  background-image: url("/public/img/kurk.jpg");
+  background-size: cover;
   position: relative;
+  border: 50px solid white;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: "";
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .password {
@@ -85,9 +99,9 @@ body {
 
 .links {
   position: absolute;
-  top: 60%;
-  left: 59%;
-  transform: rotate(-2deg);
+  top: calc(50% + 200px);
+  left: calc(50% + 200px);
+  transform: rotate(2deg) translate(-50%, -50%);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -98,7 +112,7 @@ body {
   height: 150px;
   gap: 20px;
 
-  background: #c1b2b2;
+  background: #ad6262;
   box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.3);
 
   &::before {
@@ -112,12 +126,13 @@ body {
     height: 32px;
 
     content: "";
-    background: #c38f8f;
+    background: #eac9c9;
     border-radius: 100%;
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.3);
   }
 
   a {
+    color: white;
     transition: letter-spacing 0.3s;
   }
 
@@ -128,9 +143,9 @@ body {
 
 .thanks {
   position: absolute;
-  top: 35%;
-  right: 58%;
-  transform: rotate(-3deg);
+  top: calc(50% - 120px);
+  left: calc(50% - 190px);
+  transform: rotate(-5deg) translate(-50%, -50%);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -138,8 +153,8 @@ body {
   justify-content: center;
 
   width: 200px;
-  height: 150px;
-  gap: 8px;
+  height: 200px;
+  gap: 12px;
 
   color: white;
   background: #527990;
@@ -164,9 +179,9 @@ body {
 
 .sample {
   position: absolute;
-  top: 20%;
-  left: 57%;
-  transform: rotate(-3deg);
+  top: calc(50% - 150px);
+  left: calc(50% + 200px);
+  transform: rotate(-3deg) translate(-50%, -50%);
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -190,39 +205,6 @@ body {
     );
     margin: 20px;
   }
-
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 30;
-
-    width: 32px;
-    height: 32px;
-
-    background: #7facc6;
-    content: "";
-    border-radius: 100%;
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.music {
-  position: absolute;
-  top: 60%;
-  right: 56%;
-  transform: rotate(-5deg);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 200px;
-  height: 250px;
-
-  background: white;
-  box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.3);
 
   &::before {
     position: absolute;
