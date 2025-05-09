@@ -24,7 +24,8 @@ export const getAllData = async (
   }
 
   if (!data || data.length === 0) {
-    res.json({ massage: "none" });
+    res.json({ message: "none" });
+    return;
   }
 
   res.json(data);
