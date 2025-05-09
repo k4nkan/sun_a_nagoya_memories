@@ -12,12 +12,18 @@ customButton.addEventListener("click", function (e) {
   fileInput.click();
 });
 
+// 現在選択されている日付を取得
+function getSelectDay() {
+  const selectElem = document.querySelector("select");
+  return selectElem?.value || "day1";
+}
+
 fileInput.addEventListener("change", async function () {
   loading.showLoading();
 
   if (fileInput.files && fileInput.files.length > 0) {
     const file = fileInput.files[0];
-    const day = "day1";
+    const day = getSelectDay();
 
     const formData = new FormData();
     formData.append("file", file);

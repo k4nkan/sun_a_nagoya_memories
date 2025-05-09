@@ -4,11 +4,13 @@ import loading from "./ui/loading.js";
 
 const day = "day1";
 
+// 現在選択されている日付の取得
 function getSelectDay() {
   const selectElem = document.querySelector("select");
   return selectElem?.value || "day1";
 }
 
+// 画像の表示
 async function updateImages() {
   const day = getSelectDay();
   loading.showLoading();
