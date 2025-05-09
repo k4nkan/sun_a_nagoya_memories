@@ -6,6 +6,7 @@ export const getAllData = async (
   res: Response
 ): Promise<void> => {
   const day = req.query.day as string;
+  const message = req.query.message as string;
 
   if (!day) {
     res.status(400).json({ error: "can't found day qury" });
@@ -16,7 +17,8 @@ export const getAllData = async (
   const { data, error } = await supabase
     .from("nagoya-datas")
     .select("*")
-    .eq("photo-date", day);
+    .eq("photo-date", day)
+    .eq("photo-message", message);
 
   if (error) {
     res.status(500).json({ error: error.message });
@@ -24,7 +26,8 @@ export const getAllData = async (
   }
 
   if (!data || data.length === 0) {
-    res.json({ massage: "none" });
+    res.json({ message: "none" });
+    return;
   }
 
   res.json(data);
