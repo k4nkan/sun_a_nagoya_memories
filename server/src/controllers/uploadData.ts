@@ -9,6 +9,7 @@ export const uploadData = async (
 ): Promise<void> => {
   const file = req.file;
   const day = req.body.day;
+  const message = req.body.message || null;
 
   if (!file || !day) {
     res.status(400).json({ error: "no file or day" });
@@ -46,7 +47,9 @@ export const uploadData = async (
     // 習得した url を table に保存
     const { error: insertError } = await supabase
       .from("nagoya-datas")
-      .insert([{ "image-url": imageURL, "photo-date": day }]);
+      .insert([
+        { "image-url": imageURL, "photo-date": day, "photo-message": message },
+      ]);
 
     if (insertError) {
       res.status(500).json({ error: insertError.message });
