@@ -9,6 +9,12 @@ export function displayImages(day) {
   const images = getImages();
   const imageLength = images.length;
 
+  // 画像が一枚もない時の処理
+  if (!Array.isArray(images) || imageLength === 0) {
+    console.log("no image");
+    return;
+  }
+
   // レイアウトの取得
   const layouts = getLayouts(day, imageLength);
 

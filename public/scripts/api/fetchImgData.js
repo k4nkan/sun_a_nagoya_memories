@@ -2,7 +2,7 @@ import { setImages } from "../data/imgData.js";
 
 const token = localStorage.getItem("token");
 
-export async function fetchImgData(day = "day1") {
+export async function fetchImgData(day) {
   if (!token) {
     console.log("error : 認証失敗");
     return;

@@ -59,5 +59,8 @@ export function getLayouts(day, length) {
     return null;
   }
 
-  return layouts[dayIndex][columnIndex];
+  // lauout 未設定なので一旦コメントアウト
+  // return layouts[dayIndex][columnIndex];
+
+  return layouts[0][0];
 }
