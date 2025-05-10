@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/home.css" />
     <link rel="stylesheet" href="styles/loading.css" />
+    <link rel="stylesheet" href="styles/upload-form.css" />
   </head>
   <body>
     <section class="flex loading">
@@ -16,6 +17,43 @@
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
+    </section>
+
+    <section class="flex upload-form-container">
+      <div class="flex upload-form">
+        <div class="form-contents">
+          <div class="form-contents-text">Photo</div>
+          <button class="form-contents-item">Add Photo</button>
+        </div>
+        <div class="form-contents">
+          <div class="form-contents-text">Comment</div>
+          <textarea
+            class="form-contents-item"
+            placeholder="add comment in here"
+          ></textarea>
+        </div>
+        <div class="form-contents">
+          <div class="form-contents-text">Date</div>
+          <div class="form-contents-item select-container">
+            <select name="" id="">
+              <option value="day1">Day 1</option>
+              <option value="day2">Day 2</option>
+              <option value="day3">Day 3</option>
+              <option value="day4">Day 4</option>
+              <option value="day5">Day 5</option>
+              <option value="day6">Day 6</option>
+              <option value="day7">Day 7</option>
+              <option value="day8">Day 8</option>
+              <option value="day9">Day 9</option>
+              <option value="day10">Day 10</option>
+            </select>
+          </div>
+        </div>
+        <div class="submit form-contents">
+          <div class="flex cancel">Cancel</div>
+          <div class="flex upload">Upload</div>
+        </div>
+      </div>
     </section>
 
     <header class="flex">

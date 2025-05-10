@@ -1,0 +1,112 @@
+.upload-form-container {
+  display: none;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+
+  .form-contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+    gap: 20px;
+
+    .form-contents-text {
+      width: 30%;
+      font-size: 20px;
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    button {
+      background: none;
+      border: 1px solid black;
+    }
+
+    .form-contents-item {
+      width: 60%;
+      height: 80%;
+      border-radius: 0;
+    }
+
+    textarea {
+      z-index: 20;
+      height: 32px;
+      padding-top: 12px;
+      text-align: center;
+      resize: none;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+
+    textarea:focus,
+    input:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .select-container {
+      position: relative;
+      select {
+        width: 100%;
+        height: 100%;
+        line-height: 40px;
+        appearance: none;
+        option {
+          text-align: center;
+          height: 100%;
+        }
+      }
+      &::after {
+        position: absolute;
+        content: "▼";
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    select:focus,
+    option:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .submit {
+    div {
+      width: 50%;
+      height: 80%;
+      font-size: 20px;
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    .cancel {
+      border: 1px solid red;
+    }
+
+    .upload {
+      border: 1px solid blue;
+    }
+  }
+
+  .upload-form {
+    min-width: 280px;
+    width: 50%;
+    max-width: 600px;
+    height: auto;
+    gap: 40px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+}

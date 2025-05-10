@@ -8,7 +8,10 @@ export async function login(password) {
     loading.showLoading();
 
     const res = await fetch(
-      "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
+      // テスト環境におけるURL
+      "http://localhost:3000/api/auth",
+      // 本番環境におけるURL
+      //"https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

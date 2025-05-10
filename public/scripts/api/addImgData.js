@@ -31,7 +31,10 @@ fileInput.addEventListener("change", async function () {
 
     try {
       const response = await fetch(
-        "https://nagoya-sun-a-memories-production.up.railway.app/api",
+        // テスト環境におけるURL
+        `http://localhost:3000/api`,
+        // 本番環境におけるURL
+        //"https://nagoya-sun-a-memories-production.up.railway.app/api",
         {
           method: "POST",
           headers: {
