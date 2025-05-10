@@ -30,6 +30,7 @@ header {
       overflow: hidden;
 
       transition: color 0.3s ease;
+      cursor: pointer;
     }
 
     .add-button::before {
@@ -70,6 +71,7 @@ header {
         border: 0.5px solid black;
         padding: 0px 20px;
         appearance: none;
+        cursor: pointer;
 
         &:focus {
           outline: none;
