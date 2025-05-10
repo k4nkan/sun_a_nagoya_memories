@@ -2,11 +2,9 @@ import { fetchImgData } from "./api/fetchImgData.js";
 import { displayImages } from "./ui/displayImg.js";
 import loading from "./ui/loading.js";
 
-const day = "day1";
-
 // 現在選択されている日付の取得
 function getSelectDay() {
-  const selectElem = document.querySelector("select");
+  const selectElem = document.getElementById("day-selector");
   return selectElem?.value || "day1";
 }
 
@@ -26,4 +24,6 @@ async function updateImages() {
 
 document.addEventListener("DOMContentLoaded", updateImages);
 
-document.querySelector("select")?.addEventListener("change", updateImages);
+document
+  .getElementById("day-selector")
+  ?.addEventListener("change", updateImages);

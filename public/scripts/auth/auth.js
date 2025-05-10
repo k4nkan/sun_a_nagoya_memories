@@ -8,6 +8,9 @@ export async function login(password) {
     loading.showLoading();
 
     const res = await fetch(
+      // テスト環境におけるURL
+      // "http://localhost:3000/api/auth",
+      // 本番環境におけるURL
       "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
       {
         method: "POST",
