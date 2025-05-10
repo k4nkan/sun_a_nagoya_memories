@@ -31,9 +31,9 @@ submitButton.addEventListener("click", async function (e) {
   try {
     const response = await fetch(
       // テスト環境URL
-      "http://localhost:3000/api",
+      //"http://localhost:3000/api",
       // 本番環境URL
-      // "https://nagoya-sun-a-memories-production.up.railway.app/api",
+      "https://nagoya-sun-a-memories-production.up.railway.app/api",
       {
         method: "POST",
         headers: {

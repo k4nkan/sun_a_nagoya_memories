@@ -10,9 +10,9 @@ export async function fetchImgData(day) {
   try {
     const response = await fetch(
       // テスト環境におけるURL
-      `http://localhost:3000/api?day=${day}`,
+      // `http://localhost:3000/api?day=${day}`,
       // 本番環境におけるURL
-      //`https://nagoya-sun-a-memories-production.up.railway.app/api?day=${day}`,
+      `https://nagoya-sun-a-memories-production.up.railway.app/api?day=${day}`,
       {
         method: "GET",
         headers: {

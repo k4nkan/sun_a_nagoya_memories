@@ -9,9 +9,9 @@ export async function login(password) {
 
     const res = await fetch(
       // テスト環境におけるURL
-      "http://localhost:3000/api/auth",
+      // "http://localhost:3000/api/auth",
       // 本番環境におけるURL
-      //"https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
+      "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
