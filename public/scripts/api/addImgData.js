@@ -14,7 +14,7 @@ customButton.addEventListener("click", function (e) {
 
 // 現在選択されている日付を取得
 function getSelectDay() {
-  const selectElem = document.querySelector("select");
+  const selectElem = document.getElementById("day-selector");
   return selectElem?.value || "day1";
 }
 
