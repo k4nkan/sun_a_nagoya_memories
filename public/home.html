@@ -23,13 +23,18 @@
       <div class="flex upload-form">
         <div class="form-contents">
           <div class="form-contents-text">Photo</div>
-          <button class="form-contents-item">Add Photo</button>
+          <label for="fileInput" class="custom-file-label form-contents-item"
+            >add photo</label
+          >
+          <input type="file" id="fileInput" class="hidden-input" />
+          <script type="module" src="scripts/ui/customFileInput.js"></script>
         </div>
         <div class="form-contents">
           <div class="form-contents-text">Comment</div>
           <textarea
             class="form-contents-item"
-            placeholder="add comment in here"
+            id="photo-comment"
+            placeholder="comment in here"
           ></textarea>
         </div>
         <div class="form-contents">
@@ -50,8 +55,8 @@
           </div>
         </div>
         <div class="submit form-contents">
-          <div class="flex cancel">Cancel</div>
-          <div class="flex upload">Upload</div>
+          <div class="flex cancel" id="closeForm">Cancel</div>
+          <div class="flex upload" id="submitForm">Upload</div>
         </div>
       </div>
     </section>
@@ -73,13 +78,11 @@
             <option value="day10">Day 10</option>
           </select>
         </div>
-        <label class="add-button flex" id="customFileButton"
+        <label class="add-button flex" id="openForm"
           ><p>Add Memories</p>
         </label>
-        <input type="file" id="fileInput" style="display: none" />
       </div>
     </header>
-    <script type="module" src="scripts/api/addImgData.js"></script>
 
     <section class="flex main-container">
       <div class="main">
@@ -94,5 +97,7 @@
       checkAuth();
     </script>
     <script src="scripts/ux/scroll.js"></script>
+    <script src="scripts/ui/displayForm.js"></script>
+    <script defer type="module" src="scripts/api/addImgData.js"></script>
   </body>
 </html>

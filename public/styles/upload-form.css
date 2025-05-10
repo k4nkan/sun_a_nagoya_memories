@@ -35,14 +35,24 @@
       border-radius: 0;
     }
 
+    .hidden-input {
+      display: none;
+    }
+
+    .custom-file-label {
+      height: 40px;
+      padding-top: 10px;
+      text-align: center;
+      resize: none;
+      border: 1px solid black;
+    }
+
     textarea {
-      z-index: 20;
       height: 32px;
       padding-top: 12px;
       text-align: center;
       resize: none;
       border: 1px solid black;
-      border-radius: 5px;
     }
 
     textarea:focus,
