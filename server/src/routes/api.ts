@@ -3,7 +3,7 @@ import multer from "multer";
 import { getAllData } from "../controllers/getAllData";
 import { uploadData } from "../controllers/uploadData";
 import { checkPassword } from "../controllers/authController";
-import { verifyToken } from "../controllers/varifyToken";
+import { verifyToken } from "../controllers/verifyToken";
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });

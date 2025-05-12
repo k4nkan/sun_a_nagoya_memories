@@ -15,7 +15,7 @@ export const checkPassword = (req: Request, res: Response) => {
     const token = jwt.sign({ authed: true }, JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.status(200).json({ success: true, token });
+    res.status(200).json({ succsess: true, token });
   } else {
     res.status(401).json({ succsess: false, message: "invalid password" });
   }
