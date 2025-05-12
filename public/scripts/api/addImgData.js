@@ -62,6 +62,10 @@ submitButton.addEventListener("click", async function (e) {
         });
       });
 
+      // フォームのリセット
+      fileInput.value = "";
+      commentInput.value = "";
+
       closeButton.click();
     } else {
       console.error("upload failed:", response.statusText);
