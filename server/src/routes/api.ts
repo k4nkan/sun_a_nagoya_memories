@@ -15,6 +15,6 @@ router.get("/", verifyToken, getAllData);
 router.post("/", verifyToken, upload.single("file"), uploadData);
 
 // パスワード認証 (トークン不要)
-router.post("/auth", checkPassword);
+router.post("/auth", express.json(), checkPassword);
 
 export default router;
