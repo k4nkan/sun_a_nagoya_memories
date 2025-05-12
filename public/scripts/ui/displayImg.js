@@ -25,6 +25,11 @@ export function displayImages(day) {
     imgElem.alt = `Photo ${img.id}`;
     imgElem.className = "photo";
 
+    // class が messge の pタグを作成
+    const messageElem = document.createElement("p");
+    messageElem.textContent = img["photo-message"];
+    messageElem.className = "message";
+
     // class が img-container の divタグを作成
     const imgContainer = document.createElement("div");
     imgContainer.className = "img-container";
@@ -42,6 +47,7 @@ export function displayImages(day) {
 
     imgContainer.appendChild(imgElem);
     frame.appendChild(imgContainer);
+    frame.appendChild(messageElem);
     container.appendChild(frame);
   });
 }
