@@ -18,7 +18,11 @@ export const uploadData = async (
 
   try {
     // webp 変換
-    const webpBuffer = await sharp(file.buffer).webp().toBuffer();
+    const webpBuffer = await sharp(file.buffer, { failOnError: false })
+      .rotate()
+      .webp()
+      .toBuffer();
+
     const fileName = `${uuid()}.webp`;
 
     // storage にアップロード
