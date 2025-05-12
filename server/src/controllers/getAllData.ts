@@ -8,7 +8,7 @@ export const getAllData = async (
   const day = req.query.day as string;
 
   if (!day) {
-    res.status(400).json({ error: "can't found day qury" });
+    res.status(400).json({ error: "can't found day query" });
     return;
   }
 
