@@ -1,7 +1,7 @@
 import { getImages } from "../data/imgData.js";
 import { getLayouts } from "../data/layoutData.js";
 
-export function displayImages(day) {
+export function displayImg(day) {
   const container = document.getElementById("image-container");
   container.innerHTML = "";
 
