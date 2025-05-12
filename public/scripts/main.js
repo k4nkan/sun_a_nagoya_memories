@@ -1,5 +1,5 @@
 import { fetchImgData } from "./api/fetchImgData.js";
-import { displayImages } from "./ui/displayImg.js";
+import { displayImg } from "./ui/displayImg.js";
 import loading from "./ui/loading.js";
 
 // 現在選択されている日付の取得
@@ -14,7 +14,7 @@ async function updateImages() {
   loading.showLoading();
   try {
     await fetchImgData(day);
-    displayImages(day);
+    displayImg(day);
   } catch (err) {
     console.error("表示エラー", err);
   } finally {
