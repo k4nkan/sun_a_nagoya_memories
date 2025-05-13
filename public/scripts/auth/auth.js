@@ -11,7 +11,8 @@ export async function login(password) {
       // テスト環境におけるURL
       // "http://localhost:3000/api/auth",
       // 本番環境におけるURL
-      "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
+      "https://sun-a-nagoya-memories-backend.onrender.com/api/auth",
+      // "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
