@@ -1,30 +1,19 @@
-import express from "express";
-import cors from "cors";
-import apiRouter from "./routes/api";
+import express, { Application } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
+import corsOptions from "./config/cors";
+import apiRouter from "./routes/api";
 
 dotenv.config();
 
-const app = express();
-const port = process.env.PORT || 3000;
+const app: Application = express();
 
-const isDev =
-  process.env.NODE_ENV === "dev" || process.env.NODE_ENV === "development";
+const port = Number(process.env.PORT) || 3000;
 
-const allowedOrigin = isDev
-  ? process.env.FRONTEND_LOCAL_URL
-  : process.env.FRONTEND_PUBLIC_URL;
-
-app.use(
-  cors({
-    origin: allowedOrigin,
-    credentials: true,
-  })
-);
-
+app.use(cors(corsOptions));
 app.use("/api", apiRouter);
 
 app.listen(port, () => {
-  console.log(`server is running at http://localhost:${port}\n`);
-  console.log(`${allowedOrigin}`);
+  console.log(`✅ Server running at http://localhost:${port}`);
+  console.log(`🌐 Allowed origins: ${process.env.CORS_ORIGIN ?? "not set"}`);
 });
