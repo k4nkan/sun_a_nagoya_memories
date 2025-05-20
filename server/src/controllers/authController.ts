@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import { Errors } from "../utils/errors";
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ export const checkPassword = (req: Request, res: Response) => {
     });
     res.status(200).json({ succsess: true, token });
   } else {
-    res.status(401).json({ succsess: false, message: "invalid password" });
+    res
+      .status(Errors.INVALID_PASSWORD.status)
+      .json({ errors: Errors.INVALID_PASSWORD.message });
   }
 };

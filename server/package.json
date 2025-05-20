@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "dotenv -e .env.development -- ts-node src/app.ts",
+    "dev": "dotenv -e .env.development -- ts-node src/index.ts",
     "start": "node build/app.js",
     "start:dev-api": "dotenv -e .env.production -- node build/app.js",
     "build": "tsc"

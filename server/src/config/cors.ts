@@ -1,4 +1,4 @@
-import cors, { CorsOptions } from "cors";
+import { CorsOptions } from "cors";
 
 const allowedOrigins = process.env.CORS_ORIGIN;
 

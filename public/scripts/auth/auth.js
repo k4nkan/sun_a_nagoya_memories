@@ -1,4 +1,5 @@
 import loading from "../ui/loading.js";
+import { API_BASE_URL } from "../data/urlData.js";
 
 export async function login(password) {
   const authImg = document.getElementById("auth-img");
@@ -7,18 +8,11 @@ export async function login(password) {
     // ローディングの表示
     loading.showLoading();
 
-    const res = await fetch(
-      // テスト環境におけるURL
-      // "http://localhost:3000/api/auth",
-      // 本番環境におけるURL
-      "https://sun-a-nagoya-memories-backend.onrender.com/api/auth",
-      // "https://nagoya-sun-a-memories-production.up.railway.app/api/auth",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
-      }
-    );
+    const res = await fetch(`${API_BASE_URL}/api/auth`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
 
     if (res.ok) {
       const data = await res.json();
@@ -39,7 +33,9 @@ export async function login(password) {
         { once: true }
       );
     } else {
-      console.error("missing pass");
+      const errData = await res.json();
+      console.error(errData.errors);
+
       // クラスの管理と失敗時用のアニメーション
       if (authImg) {
         authImg.classList.remove("unlocked");
