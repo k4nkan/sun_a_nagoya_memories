@@ -1,4 +1,5 @@
 import { setImages } from "../data/imgData.js";
+import { API_BASE_URL } from "../data/urlData.js";
 
 const token = localStorage.getItem("token");
 
@@ -8,20 +9,13 @@ export async function fetchImgData(day) {
     return;
   }
   try {
-    const response = await fetch(
-      // テスト環境におけるURL
-      // `http://localhost:3000/api?day=${day}`,
-      // 本番環境におけるURL
-      `https://sun-a-nagoya-memories-backend.onrender.com/api?day=${day}`,
-      // `https://nagoya-sun-a-memories-production.up.railway.app/api?day=${day}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch(`${API_BASE_URL}/api/data?day=${day}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
     if (response.ok) {
       const data = await response.json();
       console.log("ok:", data);

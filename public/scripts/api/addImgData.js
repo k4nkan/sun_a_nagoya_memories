@@ -1,6 +1,7 @@
 import loading from "../ui/loading.js";
 import { fetchImgData } from "../api/fetchImgData.js";
 import { displayImg } from "../ui/displayImg.js";
+import { API_BASE_URL } from "../data/urlData.js";
 
 // フォーム内の情報
 const fileInput = document.getElementById("fileInput");
@@ -35,20 +36,13 @@ submitButton.addEventListener("click", async function (e) {
   loading.showLoading();
 
   try {
-    const response = await fetch(
-      // テスト環境URL
-      // "http://localhost:3000/api",
-      // 本番環境URL
-      "https://sun-a-nagoya-memories-backend.onrender.com/api",
-      // "https://nagoya-sun-a-memories-production.up.railway.app/api",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      }
-    );
+    const response = await fetch(`${API_BASE_URL}/api/upload`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
 
     if (response.ok) {
       const result = await response.json();
@@ -64,13 +58,14 @@ submitButton.addEventListener("click", async function (e) {
       });
 
       // フォームのリセット
-      fileInput.value = "";
+      fileInput.value = null;
       commentInput.value = "";
 
       closeButton.click();
     } else {
-      console.error("upload failed:", response.statusText);
-      alert("アップロード失敗");
+      const errorData = await response.json();
+      console.error("upload failed:", errorData.error);
+      alert(`アップロード失敗: ${errorData.error}`);
     }
   } catch (err) {
     console.error("Error upload:", err);

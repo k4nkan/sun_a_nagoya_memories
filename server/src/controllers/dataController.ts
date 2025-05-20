@@ -1,5 +1,7 @@
 import { supabase } from "../supabase/client";
 import { Request, Response } from "express";
+import { Errors } from "../utils/errors";
+import { json } from "stream/consumers";
 
 export const getAllData = async (
   req: Request,
@@ -8,7 +10,7 @@ export const getAllData = async (
   const day = req.query.day as string;
 
   if (!day) {
-    res.status(400).json({ error: "can't found day query" });
+    res.status(Errors.MISSING_DAY.status).json(Errors.MISSING_DAY.message);
     return;
   }
 
@@ -19,12 +21,9 @@ export const getAllData = async (
     .eq("photo-date", day);
 
   if (error) {
-    res.status(500).json({ error: error.message });
-    return;
-  }
-
-  if (!data || data.length === 0) {
-    res.json({ message: "none" });
+    res
+      .status(Errors.STORAGE_GET_FAIL.status)
+      .json(Errors.STORAGE_GET_FAIL.message);
     return;
   }
 
