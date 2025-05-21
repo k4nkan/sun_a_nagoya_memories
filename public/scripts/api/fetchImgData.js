@@ -1,5 +1,6 @@
 import { setImages } from "../data/imgData.js";
 import { API_BASE_URL } from "../data/urlData.js";
+import { displayError } from "../utils/error.js";
 
 const token = localStorage.getItem("token");
 
@@ -9,21 +10,23 @@ export async function fetchImgData(day) {
     return;
   }
   try {
-    const response = await fetch(`${API_BASE_URL}/api/data?day=${day}`, {
+    const res = await fetch(`${API_BASE_URL}/api/data?day=${day}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     });
-    if (response.ok) {
-      const data = await response.json();
+    if (res.ok) {
+      const data = await res.json();
       console.log("ok:", data);
       setImages(data);
     } else {
-      console.log("error:", response.status, response.statusText);
+      const errData = await res.json();
+      displayError(errData, false);
     }
-  } catch (error) {
-    console.error("error during fetch:", error);
+  } catch (err) {
+    console.error("Server Error :", err);
+    alert("サーバーとの通信に失敗しました");
   }
 }
