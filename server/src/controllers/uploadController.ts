@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import sharp from "sharp";
 import { supabase } from "../supabase/client";
 import { v4 as uuid } from "uuid";
+import { sendErrorReponse } from "../utils/response";
 import { Errors } from "../utils/errors";
 
 export const uploadData = async (
@@ -13,8 +14,7 @@ export const uploadData = async (
   const message = req.body.message || null;
 
   if (!file || !day) {
-    const err = Errors.NO_FILE_OR_DAY;
-    res.status(err.status).json({ error: err.message });
+    sendErrorReponse(res, Errors.NO_FILE_OR_DAY);
     return;
   }
 
@@ -34,8 +34,7 @@ export const uploadData = async (
       });
 
     if (storageError) {
-      const err = Errors.STORAGE_UPLOAD_FAIL(storageError.message);
-      res.status(err.status).json({ error: err.message });
+      sendErrorReponse(res, Errors.STORAGE_UPLOAD_FAIL(storageError.message));
       return;
     }
 
@@ -45,8 +44,7 @@ export const uploadData = async (
 
     const imageURL = publicURLData?.publicUrl;
     if (!imageURL) {
-      const err = Errors.PUBLIC_URL_FAIL;
-      res.status(err.status).json({ error: err.message });
+      sendErrorReponse(res, Errors.PUBLIC_URL_FAIL);
       return;
     }
 
@@ -57,15 +55,13 @@ export const uploadData = async (
       ]);
 
     if (insertError) {
-      const err = Errors.INSERT_FAIL(insertError.message);
-      res.status(err.status).json({ error: err.message });
+      sendErrorReponse(res, Errors.INSERT_FAIL(insertError.message));
       return;
     }
 
     res.status(200).json({ message: "done!" });
   } catch (err: any) {
     console.error("Unknown upload error:", err);
-    const error = Errors.UNKNOWN_ERROR(err.message);
-    res.status(error.status).json({ error: error.message });
+    sendErrorReponse(res, Errors.UNKNOWN_ERROR(err.message));
   }
 };

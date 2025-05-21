@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import { sendErrorReponse } from "../utils/response";
+import { Errors } from "../utils/errors";
 
 dotenv.config();
 
@@ -13,7 +15,7 @@ export const verifyToken = (
 ): void => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
-    res.status(401).json({ error: "token missing" });
+    sendErrorReponse(res, Errors.MISSING_TOKEN);
     return;
   }
 
@@ -24,7 +26,7 @@ export const verifyToken = (
     jwt.verify(token, JWT_SECRET);
     next();
   } catch (error) {
-    res.status(401).json({ error: "invalid token" });
+    sendErrorReponse(res, Errors.INVALID_TOKEN);
     return;
   }
 };

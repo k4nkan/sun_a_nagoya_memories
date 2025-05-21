@@ -1,36 +1,61 @@
 export const Errors = {
-  // パスワード不一致の際のエラー
-  INVALID_PASSWORD: { status: 401, message: "invalid password" },
+  INVALID_PASSWORD: {
+    code: 401,
+    message: "invalid password",
+    details: "パスワードが間違っています",
+  },
 
-  // 無効なトークンの際のエラー
-  INVALID_TOKEN: { status: 401, message: "invalid token" },
+  INVALID_TOKEN: {
+    code: 401,
+    message: "invalid token",
+    details: "トークンが不正です",
+  },
 
-  // トークンがない際のエラー
-  MISSING_TOKEN: { status: 401, message: "token missing" },
+  MISSING_TOKEN: {
+    code: 401,
+    message: "token missing",
+    details: "トークンが見つかりません",
+  },
 
-  // day がない際のエラー
-  MISSING_DAY: { status: 400, message: "can't found day query" },
+  MISSING_DAY: {
+    code: 400,
+    message: "can't found day query",
+    details: "クエリ 'day' が不足しています",
+  },
 
-  // フォームで項目に欠けがある際のエラー
-  NO_FILE_OR_DAY: { status: 400, message: "no file or day" },
+  NO_FILE_OR_DAY: {
+    code: 400,
+    message: "no file or day",
+    details: "画像と日付をフォームに入力してください",
+  },
 
-  // urlの取得に失敗した際のエラー
-  PUBLIC_URL_FAIL: { status: 500, message: "failed to get public URL" },
+  PUBLIC_URL_FAIL: {
+    code: 500,
+    message: "failed to get public URL",
+    details: "画像URLの取得に失敗しました",
+  },
 
-  // ストレージからのデータ取得に失敗した際のエラー
-  STORAGE_GET_FAIL: { status: 500, message: "failed to get table data" },
+  STORAGE_GET_FAIL: {
+    code: 500,
+    message: "failed to get table data",
+    details: "データベースからデータの取得に失敗しました",
+  },
 
-  // アップロード失敗の際のエラー
   STORAGE_UPLOAD_FAIL: (msg = "upload failed") => ({
-    status: 500,
+    code: 500,
     message: msg,
+    details: "画像のアップロード中にエラーが発生しました",
   }),
 
-  // データベースへの挿入に失敗した際のエラー
   INSERT_FAIL: (msg = "failed to insert data") => ({
-    status: 500,
+    code: 500,
     message: msg,
+    details: "データベースへの保存に失敗しました",
   }),
 
-  UNKNOWN_ERROR: (msg = "unknown error") => ({ status: 500, message: msg }),
+  UNKNOWN_ERROR: (msg = "unknown error") => ({
+    code: 500,
+    message: msg,
+    details: "予期しないエラーが発生しました",
+  }),
 };

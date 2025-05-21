@@ -4,8 +4,8 @@
   "main": "build/index.js",
   "scripts": {
     "dev": "dotenv -e .env.development -- ts-node src/index.ts",
-    "start": "dotenv -e .env.production -- node build/index.js",
-    "start:dev-api": "dotenv -e .env.production -- node build/app.js",
+    "prod:local": "dotenv -e .env.production -- node build/index.js",
+    "start": "node build/index.js",
     "build": "tsc"
   },
   "keywords": [],
