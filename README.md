@@ -2,11 +2,12 @@
 ## 📸&nbsp;&nbsp;はじめに
 スクールでの思い出をおしゃれに見られたらいいなぁ
 ## 📝&nbsp;&nbsp;概要
-このプロダクトは、ユーザーが画像をアップロードするだけで、バックエンド側で自動的に WebP 形式へ変換し、Supabase のストレージとデータベースに保存するアプリケーションです。  
-アップロード処理には multer を使ってファイルを受け取り、sharp で画像のフォーマット変換・最適化を行います。  
-保存された画像情報は Supabase のテーブルに記録され、フロントエンドから一覧表示が可能です。  
+撮った写真をオンライン上でおしゃれに見るためのwebアプリケーションです。    
+フロントエンドでは、HTML、CSS、JSを用いながらバックエンドから取得した画像をおしゃれに表示します。  
+バックエンドでは、TypeScript、Node.js、Express、Supabase などを用いた api を作成しました。  
+ユーザーが画像をアップロードした画像をWebP形式へ変換し、Supabase のストレージとデータベースに保存しています。
 認証には JWT（JSON Web Token）を採用し、パスワードを知っているユーザーのみが操作できるようにルートを保護しています。  
-インフラ面では、フロントエンドは Netlify、バックエンドは Renader (初期はRailway) 上でホスティングしています。  
+インフラ面では、フロントエンドは Netlify、バックエンドは Renader (初期は Railway) 上でホスティングしました。  
 ## 🔗&nbsp;&nbsp;リンク
 - [**サイトURL**](https://nagoya-sun-a-memories.netlify.app/)
 - [**Figma URL**](https://www.figma.com/design/b4jBlq8sMQ4byhgoOr12uL/memories)
