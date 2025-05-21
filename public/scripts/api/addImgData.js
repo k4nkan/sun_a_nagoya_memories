@@ -2,6 +2,7 @@ import loading from "../ui/loading.js";
 import { fetchImgData } from "../api/fetchImgData.js";
 import { displayImg } from "../ui/displayImg.js";
 import { API_BASE_URL } from "../data/urlData.js";
+import { displayError } from "../utils/error.js";
 
 // フォーム内の情報
 const fileInput = document.getElementById("fileInput");
@@ -36,7 +37,7 @@ submitButton.addEventListener("click", async function (e) {
   loading.showLoading();
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/upload`, {
+    const res = await fetch(`${API_BASE_URL}/api/upload`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -44,8 +45,8 @@ submitButton.addEventListener("click", async function (e) {
       body: formData,
     });
 
-    if (response.ok) {
-      const result = await response.json();
+    if (res.ok) {
+      const result = await res.json();
       console.log("upload ok:", result);
 
       await fetchImgData(day);
@@ -63,13 +64,12 @@ submitButton.addEventListener("click", async function (e) {
 
       closeButton.click();
     } else {
-      const errorData = await response.json();
-      console.error("upload failed:", errorData.error);
-      alert(`アップロード失敗: ${errorData.error}`);
+      const errData = await res.json();
+      displayError(errData, false);
     }
   } catch (err) {
-    console.error("Error upload:", err);
-    alert("アップロードエラー");
+    console.error("Server Error :", err);
+    alert("サーバーとの通信に失敗しました");
   } finally {
     loading.hideLoading();
   }

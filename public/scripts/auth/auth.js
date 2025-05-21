@@ -1,5 +1,6 @@
 import loading from "../ui/loading.js";
 import { API_BASE_URL } from "../data/urlData.js";
+import { displayError } from "../utils/error.js";
 
 export async function login(password) {
   const authImg = document.getElementById("auth-img");
@@ -34,7 +35,7 @@ export async function login(password) {
       );
     } else {
       const errData = await res.json();
-      console.error(errData.errors);
+      displayError(errData, false);
 
       // クラスの管理と失敗時用のアニメーション
       if (authImg) {
@@ -49,8 +50,9 @@ export async function login(password) {
         { once: true }
       );
     }
-  } catch (error) {
-    console.error("ログインエラー:", error);
+  } catch (err) {
+    console.error("Server Error :", err);
+    alert("サーバーとの通信に失敗しました");
   } finally {
     loading.hideLoading();
   }
