@@ -13,7 +13,7 @@
       position: relative;
       display: flex;
       overflow-x: auto;
-      background-image: url("../img/bg.jpg");
+      background-image: url("../img/bg.webp");
       background-position: center;
       background-size: cover;
       width: 100%;
