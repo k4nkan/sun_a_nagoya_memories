@@ -1,5 +1,6 @@
 import { getImages } from "../data/imgData.js";
 import { getLayouts } from "../data/layoutData.js";
+import { attachClickAndDrag } from "./clickImg.js";
 
 export function displayImg(day) {
   const container = document.getElementById("image-container");
@@ -49,5 +50,7 @@ export function displayImg(day) {
     frame.appendChild(imgContainer);
     frame.appendChild(messageElem);
     container.appendChild(frame);
+
+    attachClickAndDrag(frame);
   });
 }
