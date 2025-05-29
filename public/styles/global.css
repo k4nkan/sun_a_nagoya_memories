@@ -1,6 +1,6 @@
 @font-face {
   font-family: "AlpenFont";
-  src: url("./fonts/AlpenFontFree.otf");
+  src: url("./fonts/AlpenFontFree.woff2") format("woff2");
 }
 
 * {
